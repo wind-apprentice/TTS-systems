@@ -31,7 +31,7 @@ def setup_data(data_configs):
         Define.DATAPARSERS[data_config["name"]] = DataParser(data_config["data_dir"])
         data_parser = Define.DATAPARSERS[data_config["name"]]
         print(data_parser.stats_path)
-        print(os.path.dirname(os.path.abspath(_file_)))
+        print(os.path.dirname(os.path.abspath(__file__)))
         with open(data_parser.stats_path) as f:
             stats = json.load(f)
             stats = stats["pitch"] + stats["energy"]
