@@ -74,7 +74,7 @@ def textgrid2segment_and_phoneme_mp(
     ))
     
     fail_cnt = 0
-    with Pool(processes=n_workers) as pool:
+    with Pool(processes=(n_workers+1)) as pool:
         for res in tqdm(pool.imap(ImapWrapper(textgrid2segment_and_phoneme), tasks, chunksize=chunksize), total=n):
             fail_cnt += 1 - res
     print("[textgrid2segment_and_phoneme_mp]: Skipped: ", fail_cnt)
